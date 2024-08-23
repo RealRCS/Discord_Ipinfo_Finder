@@ -1,18 +1,18 @@
-require('dotenv').config(); // .env 파일에서 환경 변수 로드
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js'); // EmbedBuilder로 변경
+require('dotenv').config(); // Load value from env
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js')
 const axios = require('axios');
 
-// 환경 변수에서 토큰 및 API 키 가져오기
+// Get value from env
 const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const IPINFO_TOKEN = process.env.IPINFO_TOKEN;
 const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
-// 디스코드 클라이언트 생성
+// Create Discord Client Intents
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent // 메시지 콘텐츠를 읽기 위해 추가
+        GatewayIntentBits.MessageContent
     ]
 });
 
@@ -22,10 +22,10 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
-    // 봇이 자신이 보낸 메시지에는 반응하지 않도록
+    // Bot can't recognize bot message
     if (message.author.bot) return;
 
-    // '&&ipinfo <ip>' 명령어 처리
+    // '&&ipinfo <ip>' command
     if (message.content.startsWith('&&ipinfo ')) {
         const ip = message.content.split(' ')[1];
         if (!ip) {
@@ -34,18 +34,18 @@ client.on('messageCreate', async (message) => {
         }
 
         try {
-            // IP 정보 조회
+            // Search IP Info 
             const ipInfoResponse = await axios.get(`https://ipinfo.io/${ip}?token=${IPINFO_TOKEN}`);
             const ipInfo = ipInfoResponse.data;
 
-            // IP 정보 추출
+            // Extract IP Info 
             const { city, region, country, loc } = ipInfo;
             const [latitude, longitude] = loc.split(',');
 
-            // Google Maps Static Image URL 생성
+            // Create Google Maps Static Img URL
             const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:IP%7C${latitude},${longitude}&key=${GOOGLE_MAPS_API_KEY}`;
 
-            // 임베드 메시지 생성
+            // Create Embed Msg
             const embed = new EmbedBuilder()
                 .setTitle(`IP Information for ${ip}`)
                 .addFields(
@@ -57,7 +57,7 @@ client.on('messageCreate', async (message) => {
                 .setImage(mapUrl)
                 .setColor('#0099ff');
 
-            // 메시지 전송
+            // Send Msg
             await message.channel.send({ embeds: [embed] });
 
         } catch (error) {
@@ -67,5 +67,5 @@ client.on('messageCreate', async (message) => {
     }
 });
 
-// 디스코드 봇 로그인
+// Login to Bot
 client.login(DISCORD_TOKEN);
