@@ -1,3 +1,13 @@
+# Discord Ipinfo Finder
+
+<div align="center">
+    <img src="https://img.shields.io/github/languages/top/RealRCS/Discord_Ipinfo_Finder?color=%23000000">
+    <img src="https://img.shields.io/github/stars/RealRCS/Discord_Ipinfo_Finder?color=%23000000&logoColor=%23000000">
+    <br>
+    <img src="https://img.shields.io/github/commit-activity/w/RealRCS/Discord_Ipinfo_Finder?color=%23000000"> 
+    <img src="https://img.shields.io/github/last-commit/RealRCS/Discord_Ipinfo_Finder?color=%23000000&logoColor=%23000000">
+</div>
+
 ## Feature
 - IP info
     - City
