@@ -1,0 +1,17 @@
+{
+    "name": "discord-bot",
+    "version": "1.0.0",
+    "description": "A Discord bot that fetches IP info and shows it on a map.",
+    "main": "bot.js",
+    "scripts": {
+      "start": "node bot.js"
+    },
+    "dependencies": {
+      "axios": "^1.3.5",
+      "discord.js": "^14.11.0",
+      "dotenv": "^16.0.3"
+    },
+    "author": "Your Name",
+    "license": "MIT"
+  }
+  
