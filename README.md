@@ -18,7 +18,7 @@
 ## Install
 
 ### Setup
-1. Download source code zip
+1. [Download source code zip](https://github.com/RealRCS/Discord_Ipinfo_Finder/archive/refs/heads/main.zip)
 2. Extract zip
 3. Edit `.env`
 4. Run `setup.bat`
