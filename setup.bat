@@ -12,6 +12,7 @@ if %ERRORLEVEL% == 0 (
     npm install
     echo Done!
     pause
+    exit 
 )
 
 :: Download Node.js installer
