@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Discord Ip Info Finder</h1>
-    <img src="https://img.shields.io/github/languages/top/RealRCS/Discord_Ipinfo_Finder">
+    <img src="https://img.shields.io/github/languages/top/RealRCS/Discord_Ipinfo_Finder?color=yellow">
     <img src="https://img.shields.io/github/stars/RealRCS/Discord_Ipinfo_Finder?color=%23000000&logoColor=%23000000">
     <br>
     <img src="https://img.shields.io/github/commit-activity/w/RealRCS/Discord_Ipinfo_Finder?color=%23000000"> 
